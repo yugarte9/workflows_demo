@@ -1,13 +1,13 @@
-name: Hello Test Phyton Versions
+name: Hello Test Python Versions
 
 on: push
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  hello-test-phyton-versions:
+  hello-test-python-versions:
     strategy:
       matrix:
-        phyton-version: ['3.6', '3.7', '3.8']
+        python-version: ['3.6', '3.7', '3.8']
     runs-on: ubuntu-latest
     steps:
     
@@ -29,14 +29,14 @@ jobs:
           echo "The contents of the repository are:"
           ls ${{ github.workspace }}
 
-      - name: Setup Phyton
-        uses: actions/setup-phyton@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
         with:
-          phyton-version: ${{ matrix.phyton-version }}
+          python-version: ${{ matrix.python-version }}
           
-      - run: echo "Phyton has been set up."
+      - run: echo "Python has been set up."
        
-      - name: Run the Phyton code in helloworld.py
+      - name: Run the Python code in helloworld.py
         run: |
-          echo "Running Phyton code"
-          phyton helloworld.py  
+          echo "Running Python code"
+          python helloworld.py  
